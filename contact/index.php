@@ -1,33 +1,27 @@
 ﻿<?php
-include("Conectare.php");
-$error='';
-if (isset($_POST['submit']))
-{
-// preluam datele de pe formular
-$name = htmlentities($_POST['name'], ENT_QUOTES);
-$email = htmlentities($_POST['email'], ENT_QUOTES);
-$phone = htmlentities($_POST['phone'], ENT_QUOTES);
-$message = htmlentities($_POST['message'], ENT_QUOTES);
+include(dirname(__DIR__) . "\db\Conectare.php");
+$error = '';
+if (isset($_POST['submit'])) {
+    // preluam datele de pe formular
+    $name = htmlentities($_POST['name'], ENT_QUOTES);
+    $email = htmlentities($_POST['email'], ENT_QUOTES);
+    $phone = htmlentities($_POST['phone'], ENT_QUOTES);
+    $message = htmlentities($_POST['message'], ENT_QUOTES);
 
-// verificam daca sunt completate
-if ($name == '' || $email == ''||$phone==''||$message=='')
-{
+    // verificam daca sunt completate
+    if ($name == '' || $email == '' || $phone == '' || $message == '') {
 
-$error = 'ERROR: Campuri goale!';
-} else {
+        $error = 'ERROR: Campuri goale!';
+    } else {
 
-if ($stmt = $mysqli->prepare("INSERT into messages (name, email, phone, message) VALUES (?, ?, ?, ?)"))
-{
-$stmt->bind_param("ssss", $name, $email,$phone,$message);
-$stmt->execute();
-$stmt->close();
-}
-
-else
-{
-echo "ERROR: Nu se poate executa insert.";
-}
-}
+        if ($stmt = $mysqli->prepare("INSERT into messages (name, email, phone, message) VALUES (?, ?, ?, ?)")) {
+            $stmt->bind_param("ssss", $name, $email, $phone, $message);
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            echo "ERROR: Nu se poate executa insert.";
+        }
+    }
 }
 
 $mysqli->close();
@@ -35,12 +29,14 @@ $mysqli->close();
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
 </head>
+
 <body>
     <!--menu bar-->
     <nav>
@@ -48,13 +44,13 @@ $mysqli->close();
             <h4>ZOOMIN</h4>
         </div>
         <ul class="nav-links">
-            <li><img class="icon2" src="poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="Login.html">Login</a></li>
-            <li><img class="icon2" src="poze\home.png" alt="home icon" style="width:25px; height:25px;" /><a href="Licenta.html">Home</a></li>
-            <li><img class="icon2" src="poze\about.png" alt="about us icon" style="width:25px; height:25px;" /><a href="AboutUs.php">About us</a></li>
-            <li><img class="icon2" src="poze\camera.png" alt="services icon" style="width:25px; height:25px;" /><a href="Services.php">Services</a>
-            <li><img class="icon2" src="poze\feedback.png" alt="feedback icon" style="width:25px; height:25px;" /><a href="Feedback.php">Feedback</a></li>
-            <li><img class="icon2" src="poze\contact.png" alt="contact icon" style="width:25px; height:25px;" /><a href="Contact.php">Contact</a></li>
-            <li><img class="icon2" src="poze\cart.png" alt="cart icon" style="width:25px; height:25px;" /><a href="Cos.php">Cosul meu</a></li>
+            <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>
+            <li><img class="icon2" src="../poze\home.png" alt="home icon" style="width:25px; height:25px;" /><a href="/licenta/">Home</a></li>
+            <li><img class="icon2" src="../poze\about.png" alt="about us icon" style="width:25px; height:25px;" /><a href="/licenta/about">About us</a></li>
+            <li><img class="icon2" src="../poze\camera.png" alt="services icon" style="width:25px; height:25px;" /><a href="/licenta/services">Services</a>
+            <li><img class="icon2" src="../poze\feedback.png" alt="feedback icon" style="width:25px; height:25px;" /><a href="/licenta/feedback">Feedback</a></li>
+            <li><img class="icon2" src="../poze\contact.png" alt="contact icon" style="width:25px; height:25px;" /><a href="/licenta/contact">Contact</a></li>
+            <li><img class="icon2" src="../poze\cart.png" alt="cart icon" style="width:25px; height:25px;" /><a href="/licenta/cart">Cosul meu</a></li>
         </ul>
         <div class="burger">
             <!--aici se afla cele 3 liniute care apar pe marginea din dreapta la varianta mobile-->
@@ -63,7 +59,7 @@ $mysqli->close();
             <div class="line3"></div>
         </div>
     </nav>
-    <script src="navigation.js"></script>
+    <script src="../navigation.js"></script>
 
     <!--Contact-->
     <div class="contact">
@@ -139,4 +135,5 @@ $mysqli->close();
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
