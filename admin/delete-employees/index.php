@@ -20,5 +20,5 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     echo "<div>Inregistrarea a fost stearsa!!!!</div>";
 }
 echo "<p><a href=\"Admin.php\">Index</a></p>";
-echo "<p><a href=\"logout.php\">Iesire</a></p>";
+echo "<p><a href=\"../../logout.php\">Iesire</a></p>";
 ?>

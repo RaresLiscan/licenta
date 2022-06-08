@@ -136,7 +136,7 @@
     $mysqli->close();
     ?>
     <a class='adminhref' href="./add-employee">Adaugarea unui nou angajat</a>
-    <br><a class='adminhref' href="logout.php">Iesire</a>
+    <br><a class='adminhref' href="../logout.php">Iesire</a>
 </body>
 
 </html>

@@ -96,7 +96,7 @@ if (!empty($_POST['id'])) {
                         <br />
                         <div class="butoninserare"><input type="submit" name="submit" value="Submit" /></div>
                         <a hclass='adminhref' ref="Admin.php">Index</a>
-                        <br><a class='adminhref' href="logout.php">Iesire</a>
+                        <br><a class='adminhref' href="../../logout.php">Iesire</a>
                 </div>
             </form>
         </div>
