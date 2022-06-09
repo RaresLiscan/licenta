@@ -10,60 +10,63 @@ $DATABASE_PASS = '';
 $DATABASE_NAME = 'fotografie';
 // Încercați să vă conectați folosind informațiile de mai sus.
 $conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if ( mysqli_connect_errno() ) {
-// Dacă există o eroare la conexiune, opriți scriptul și afișați eroarea.
-exit('Esec Conectare MySQL: ' . mysqli_connect_error());
+if (mysqli_connect_errno()) {
+    // Dacă există o eroare la conexiune, opriți scriptul și afișați eroarea.
+    exit('Esec Conectare MySQL: ' . mysqli_connect_error());
 }
 
 //Dacă utilizatorul nu este conectat redirecționează la pagina de autentificare ...
 if (!isset($_SESSION['loggedin'])) {
-header('Location: Login.html');
-exit;
+    header('Location: Login.html');
+    exit;
 }
 
 // pt membrii inregistrati
-$id_user=$_SESSION['id'];
+$id_user = $_SESSION['id'];
 $shoppingCart = new ShoppingCart();
-if (! empty($_GET["action"])) {
- switch ($_GET["action"]) {
- case "add":
- if (! empty($_POST["quantity"])) {
- 
- $serviceResult = $shoppingCart->getProductByCode($_GET["code"]);
- 
- $cartResult = $shoppingCart->getCartItemByProduct($serviceResult[0]["id"], $id_user);
- 
- if (! empty($cartResult)) {
- // Modificare cantitate in cos
- $newQuantity = $cartResult[0]["quantity"] + $_POST["quantity"];
- $shoppingCart->updateCartQuantity($newQuantity, $cartResult[0]["id"]);
- } else {
- // Adaugare in tabelul cos
- $shoppingCart->addToCart($serviceResult[0]["id"], $_POST["quantity"], $id_user);
- }
- }
- break;
- case "remove":
- // Sterg o sg inregistrare
- $shoppingCart->deleteCartItem($_GET["id"]);
- break;
- case "empty":
- // Sterg cosul
- $shoppingCart->emptyCart($id_user);
- break;
- case "update":
- $shoppingCart->updateCartQuantity($_POST["quantity"], $_GET["id"]);
- }
+if (!empty($_GET["action"])) {
+    switch ($_GET["action"]) {
+        case "add":
+            if (!empty($_POST["quantity"])) {
+
+                $serviceResult = $shoppingCart->getProductByCode($_GET["code"]);
+
+                $cartResult = $shoppingCart->getCartItemByProduct($serviceResult[0]["id"], $id_user);
+
+                if (!empty($cartResult)) {
+                    // Modificare cantitate in cos
+                    $newQuantity = $cartResult[0]["quantity"] + $_POST["quantity"];
+                    $shoppingCart->updateCartQuantity($newQuantity, $cartResult[0]["id"]);
+                } else {
+                    // Adaugare in tabelul cos
+                    $shoppingCart->addToCart($serviceResult[0]["id"], $_POST["quantity"], $id_user);
+                }
+            }
+            break;
+        case "remove":
+            // Sterg o sg inregistrare
+            $shoppingCart->deleteCartItem($_GET["id"]);
+            break;
+        case "empty":
+            // Sterg cosul
+            $shoppingCart->emptyCart($id_user);
+            break;
+        case "update":
+            $shoppingCart->updateCartQuantity($_POST["quantity"], $_GET["id"]);
+    }
 }
 ?>
 
 <HTML>
+
 <HEAD>
-<TITLE>creare cos permament in PHP</TITLE>
-<link href="style.css" type="text/css" rel="stylesheet" />
+    <TITLE>creare cos permament in PHP</TITLE>
+    <link href="style.css" type="text/css" rel="stylesheet" />
 </HEAD>
-<BODY> <!--menu bar-->
-     <nav>
+
+<BODY>
+    <!--menu bar-->
+    <nav>
         <div class="logo">
             <h4>ZOOMIN</h4>
         </div>
@@ -86,119 +89,125 @@ if (! empty($_GET["action"])) {
     <script src="navigation.js"></script>
 
     <!--cos-->
-	<main class="containercos">
-	<div class="item-flex">
- 
-<section class="cart">
-<div class="cart-item-box">
-    <h2 class="section-heading">Order Summery</h2>
-    <div class="product-cart">
-        <div class="cart">
-	        <?php
-		        $cartItem = $shoppingCart->getMemberCartItem($id_user);
-		            if (! empty($cartItem)) {
-			            $item_total = 0;
-	        ?>
-    
-	<table cellpadding="10" cellspacing="1">
-	<tbody>
-	
-    
-	<?php
-		foreach ($cartItem as $item) {
-	?>
-    <div class="img-box">
-                                <img src="<?php echo $item["photo0"]; ?>" alt="Portrait photography" style="width:80px" class="product-img" />
-                            </div>
-                            <div class="detail">
-                                <h4 class="product-name"><strong>NAME: <?php echo $item["servicename"]; ?><strong></h4>
-                                <div class="wrappercos">
-                                    <div class="product-name">
-                                        <strong>QUANTITY: <?php echo $item["quantity"]; ?> <br>
-                                    </div>
-                                    <div class="product-name">
-                                         <strong>PRICE: <?php echo $item["price"]; ?>
-                                    </div>
-                                    <div class="product-reservation">
-                                    <form action="#" method="post">
-                                       <div><a href="reservation.php" name="rezerv" style="color:black;">Make a reservation<a></div>
-                                       <!--input type="submit" name="submit" value="Send" />-->
-                                       
-                                        </form>
-                                    </div>
-                                </div>
-                                <div ><a href="Cos.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="icon2" src="icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a></div>
-                            </div>
+    <main class="containercos">
+        <div class="item-flex">
 
-
-
-	    <?php
-            $item_total += ($item["price"] * $item["quantity"]);
-            echo  $item_total;
-        }
-         ?>
-    <tr>
-    <!--<td colspan="3" text-align=right><strong>Total:</strong></td>
-    <td text-align=right>//echo "RON ".$item_total; ?></td>-->
-    <td></td>
-    </tr>
-    </tbody>
-    </table>
-     <?php
-	    }
-      ?>
- </div>
- </div>
- </div>
- <div><a href="Services.php" style="color:black;">Alegeti alt produs</a></div>
-<div><a href="logout.php" style="color:black;">Abandonati sesiunea de cumparare</a></div>
-  <div class="wrappercos">
-  <form action="" method="post">
-                    <div class="discount-token">
-                        <label for="discount-token" class="label-default">Gift card/Discount code</label>
-                        <div class="wrapper-flex">
-                            <input type="text" name="discount-token" id="discount-token" class="input-default" />
-                            <button type="submit" name="apply" class="btn-primary btn-outline">Apply</button>
+            <section class="cart">
+                <div class="cart-item-box">
+                    <h2 class="section-heading">Order Summary</h2>
+                    <div class="product-cart">
+                        <div class="cart">
                             <?php
-                                if (isset($_POST['apply'])) {
+                            $cartItem = $shoppingCart->getMemberCartItem($id_user);
+                            if (!empty($cartItem)) {
+                                $item_total = 0;
+                            ?>
 
-                                            $discount = $_POST['discount-token'];
-                                            $get_pro = "SELECT codename, amount FROM discount WHERE codename LIKE '%$discount'";
-                                            $run_pro = mysqli_query($conn, $get_pro);  
-                                            if ($r = mysqli_fetch_assoc($run_pro)){
-                                                echo 'exista acest cod ' . $discount;
-                                                echo '<br>';
-                                                echo 'You will get' .$r['amount'] *100 .'% off';
-                                            }     
-                                            else {
-                                                echo 'nu exista acest cod';  
-                                                $r['amount']=0;
-                                            }
-                                                     echo '<br>';?>
-                                                     
-<div class="total">
-                          <?php echo 'Total cu discount: ';
-                              echo $item_total - ( $r['amount']*$item_total ) ;
-                              echo 'LEI';
-                                        }
-                                ?>
-                                <div class="total">
-                            <td colspan="3" text-align=right><strong>Total fara discount: <?php echo  $item_total . " LEI" . "<br>" ;?></strong></td>   
-                        </div>
-                                </div>
+                                <table cellpadding="10" cellspacing="1">
+                                    <tbody>
+
+
+                                        <?php
+                                        foreach ($cartItem as $item) {
+                                        ?>
+                                            <div class="cart-product">
+                                                <div class=" img-box">
+                                                    <img src="<?php echo $item["photo0"]; ?>" alt="Portrait photography" style="width:80px" class="product-img" />
+                                                </div>
+                                                <div class="detail">
+                                                    <h4 class="product-name"><strong>NAME: <?php echo $item["servicename"]; ?><strong></h4>
+                                                    <div class="wrappercos">
+                                                        <a href="Cos.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="trash" src="icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a>
+
+                                                        <div class="product-name">
+                                                            <strong>QUANTITY: <?php echo $item["quantity"]; ?> <br>
+                                                        </div>
+                                                        <div class="product-name">
+                                                            <strong>PRICE: <?php echo $item["price"]; ?> Lei
+                                                        </div>
+                                                        <div class="product-reservation">
+                                                            <div class="rezerv"><a href="reservation.php" name="rezerv" style="color:black;">Make a reservation<a></div>
+                                                        </div>
+                                                        <div class="product-name">
+                                                            <?php
+                                                            $item_total += ($item["price"] * $item["quantity"]);
+                                                            echo  "Total:" . $item_total;
+
+                                                            ?>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+
+
+
+
+                                        <tr>
+                                            <!--<td colspan="3" text-align=right><strong>Total:</strong></td>
+    <td text-align=right>//echo "RON ".$item_total; ?></td>-->
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
- </form>
+                </div>
+                <div><a href="Services.php" style="color:black;">Alegeti alt produs</a></div>
+                <div><a href="logout.php" style="color:black;">Abandonati sesiunea de cumparare</a></div>
+                <div class="wrappercos">
+                    <form action="" method="post">
+                        <div class="discount-token">
+                            <label for="discount-token" class="label-default">Gift card/Discount code</label>
+                            <div class="wrapper-flex">
+                                <input type="text" name="discount-token" id="discount-token" class="input-default" />
+                                <button type="submit" name="apply" class="btn-primary btn-outline">Apply</button>
+                                <?php
+                                if (isset($_POST['apply'])) {
+
+                                    $discount = $_POST['discount-token'];
+                                    $get_pro = "SELECT codename, amount FROM discount WHERE codename LIKE '%$discount'";
+                                    $run_pro = mysqli_query($conn, $get_pro);
+                                    if ($r = mysqli_fetch_assoc($run_pro)) {
+                                        echo 'exista acest cod ' . $discount;
+                                        echo '<br>';
+                                        echo 'You will get' . $r['amount'] * 100 . '% off';
+                                    } else {
+                                        echo 'nu exista acest cod';
+                                        $r['amount'] = 0;
+                                    }
+                                    echo '<br>'; ?>
+
+                                    <div class="total">
+                                    <?php echo 'Total cu discount: ';
+                                    echo $item_total - ($r['amount'] * $item_total);
+                                    echo 'LEI';
+                                }
+                                    ?>
+                                    <div class="total">
+                                        <td colspan="3" text-align=right><strong>Total fara discount: <?php echo  $item_total . " LEI" . "<br>"; ?></strong></td>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </form>
                     <!-- <div class="amount">
                         <div class="total">
-                            <td colspan="3" text-align=right><strong>Total fara discount: <?php //echo  $item_total . " LEI" . "<br>" ;?></strong></td>   
+                            <td colspan="3" text-align=right><strong>Total fara discount: <?php //echo  $item_total . " LEI" . "<br>" ;
+                                                                                            ?></strong></td>   
                         </div>
                     </div>-->
-</div>
-</div>
-</div>
- </main>
+                </div>
+        </div>
+        </div>
+    </main>
 </BODY>
+
 </HTML>
 
 

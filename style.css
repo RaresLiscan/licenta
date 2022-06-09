@@ -128,9 +128,9 @@ nav {
 .split {
     height: 100%;
     width: 50%;
-    top: 35px;
+    top: 8vh;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     padding-top: 20px;
 }
 .left{
@@ -206,14 +206,15 @@ nav {
 }
 
 /*login*/
-a { /*pentru forgot password si register*/
+.login-buttons { /*pentru forgot password si register*/
     color: #d7d0c8;
     transition: all.3s ease;
     text-decoration: none;
 }
-a:hover{
+.login-buttons:hover{
     color:white;
 }
+
 .loginsection {
     display: flex;
     justify-content: center;
@@ -1290,7 +1291,6 @@ textarea.input {
     margin-bottom:10px;
 }
 .cart .detail .wrappercos {
-    display: flex;
     gap: 20px;
 }
 .wrappercos {
@@ -1459,10 +1459,7 @@ textarea.input {
     margin:0 auto;
     color:#686868;
 }
-.bookform{
-    /*display:grid;
-    grid-row-gap: 20px;*/
-}
+
 .bookform p{
     font-weight:600;
 }
@@ -1782,4 +1779,30 @@ form .butoninserare input:hover{
     max-width: 500px;
     width: 100%;
     position: relative;
+}
+
+.rezerv {
+    padding: 5px;
+    
+    margin-top: 15px;
+    font-size: 20px;
+
+    background-color: #B69A9A;
+    border-radius: 5px;
+}
+
+.rezerv:hover {
+    transition: all ease-in-out 250ms;
+    background-color: #8b7070;
+}
+
+.trash {
+    float: right;
+    position: relative;
+    left: 35px;
+}
+
+.img-box {
+    display: flex;
+    justify-content: center;
 }
