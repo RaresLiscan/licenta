@@ -1810,9 +1810,3 @@ form .butoninserare input:hover{
     font-size: 25px;
 }
 
-.contact-text {
-    transition: none;
-    position: absolute;
-    text-align: center;
-    top: 250px;
-}
