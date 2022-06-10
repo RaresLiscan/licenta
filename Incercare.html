@@ -1,285 +1,385 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-</head>
-<body>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
     <!--menu bar-->
     <nav>
-        <div class="logo">
-            <h4>ZOOMIN</h4>
-        </div>
-        <ul class="nav-links">
-            <li><img class="icon2" src="login.png" alt="login icon" style="width:25px; height:25px;" /><a href="Login.html">Login</a></li>
-            <li><img class="icon2" src="home.png" alt="home icon" style="width:25px; height:25px;" /><a href="Licenta.html">Home</a></li>
-            <li><img class="icon2" src="about.png" alt="about us icon" style="width:25px; height:25px;" /><a href="AboutUs.html">About us</a></li>
-            <li><img class="icon2" src="camera.png" alt="services icon" style="width:25px; height:25px;" /><a href="Services.html">Services</a>
-            <li><img class="icon2" src="feedback.png" alt="feedback icon" style="width:25px; height:25px;" /><a href="Feedback.html">Feedback</a></li>
-            <li><img class="icon2" src="contact.png" alt="contact icon" style="width:25px; height:25px;" /><a href="Contact.html">Contact</a></li>
-            <li><img class="icon2" src="cart.png" alt="cart icon" style="width:25px; height:25px;" /><a href="Cos.html">Cosul meu</a></li>
+      <div class="logo">
+        <img src="poze/icon.png" />
+      </div>
+      <ul class="nav-links">
+        <li>
+          <img
+            class="icon2"
+            src="login.png"
+            alt="login icon"
+            style="width: 25px; height: 25px"
+          /><a href="Login.html">Login</a>
+        </li>
+        <li>
+          <img
+            class="icon2"
+            src="home.png"
+            alt="home icon"
+            style="width: 25px; height: 25px"
+          /><a href="Licenta.html">Home</a>
+        </li>
+        <li>
+          <img
+            class="icon2"
+            src="about.png"
+            alt="about us icon"
+            style="width: 25px; height: 25px"
+          /><a href="AboutUs.html">About us</a>
+        </li>
+        <li>
+          <img
+            class="icon2"
+            src="camera.png"
+            alt="services icon"
+            style="width: 25px; height: 25px"
+          /><a href="Services.html">Services</a>
+        </li>
+        <li>
+          <img
+            class="icon2"
+            src="feedback.png"
+            alt="feedback icon"
+            style="width: 25px; height: 25px"
+          /><a href="Feedback.html">Feedback</a>
+        </li>
+        <li>
+          <img
+            class="icon2"
+            src="contact.png"
+            alt="contact icon"
+            style="width: 25px; height: 25px"
+          /><a href="Contact.html">Contact</a>
+        </li>
+        <li>
+          <img
+            class="icon2"
+            src="cart.png"
+            alt="cart icon"
+            style="width: 25px; height: 25px"
+          /><a href="Cos.html">Cosul meu</a>
+        </li>
 
-            <!-- <li><a href="Licenta.html">Home</a></li>
+        <!-- <li><a href="Licenta.html">Home</a></li>
             <li><a href="AboutUs.html">About us</a></li>
             <li><a href="Services.html">Services</a>
             <li><a href="Feedback.html">Feedback</a></li>
             <li><a href="Contact.html">Contact</a></li>
             <li><a href="Cos.html">Cos</a></li> -->
-        </ul>
-        <div class="burger">
-            <!--aici se afla cele 3 liniute care apar pe marginea din dreapta la varianta mobile-->
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
+      </ul>
+      <div class="burger">
+        <!--aici se afla cele 3 liniute care apar pe marginea din dreapta la varianta mobile-->
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
     </nav>
     <script src="navigation.js"></script>
 
     <!--servicii-->
     <section class="servicii">
-        <div class="containerservices">
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="woman.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="woman.png" alt="Woman" />
-                        </div>
-                        <div class="service-img">
-                            <img src="couple.png" alt="Woman" />
-                        </div>
-                        <div class="service-img">
-                            <img src="wedding.png" alt="Woman" />
-                        </div>
-                        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                    </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="containerservices">
+        <div class="service">
+          <div class="service-card">
+            <h2 class="name">Portrait photography</h2>
+            <span class="price">$50</span>
+            <a class="popup-btn">Quick view</a>
+            <img src="woman.png" class="service-img" alt="Woman" />
+          </div>
+          <div class="popup-view">
+            <div class="popup-card">
+              <a><i class="fas fa-times close-btn"></i></a>
+              <div class="service-img">
+                <img src="woman.png" alt="Woman" />
+              </div>
+              <div class="service-img">
+                <img src="couple.png" alt="Woman" />
+              </div>
+              <div class="service-img">
+                <img src="wedding.png" alt="Woman" />
+              </div>
+              <button
+                class="w3-button w3-black w3-display-left"
+                onclick="plusDivs(-1)"
+              >
+                &#10094;
+              </button>
+              <button
+                class="w3-button w3-black w3-display-right"
+                onclick="plusDivs(1)"
+              >
+                &#10095;
+              </button>
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="couple.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="couple.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="engagement.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="engagement.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="couple.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="couple.png" alt="Woman" />
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="wedding.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="wedding.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="baby.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="baby.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="engagement.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="engagement.png" alt="Woman" />
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="family.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="family.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="event.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="event.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="wedding.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="wedding.png" alt="Woman" />
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="product.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="product.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
             </div>
-            <div class="service">
-                <div class="service-card">
-                    <h2 class="name">Portrait photography</h2>
-                    <span class="price">$50</span>
-                    <a class="popup-btn">Quick view</a>
-                    <img src="dog.png" class="service-img" alt="Woman" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="service-img">
-                            <img src="dog.png" alt="Woman" />
-                        </div>
-                        <div class="infoservice">
-                            <h2>Portrait photography<br /><span>blabla</span></h2>
-                            <p>nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic nu merge la pagina asta de servicii</p>
-                            <span class="price">$50</span>
-                            <a href="#" class="add-cart-btn">Add to Cart</a>
-                            <a href="#" class="more-photos">More photos</a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="baby.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="baby.png" alt="Woman" />
             </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="family.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="family.png" alt="Woman" />
+            </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="event.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="event.png" alt="Woman" />
+            </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="product.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="product.png" alt="Woman" />
+            </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service">
+        <div class="service-card">
+          <h2 class="name">Portrait photography</h2>
+          <span class="price">$50</span>
+          <a class="popup-btn">Quick view</a>
+          <img src="dog.png" class="service-img" alt="Woman" />
+        </div>
+        <div class="popup-view">
+          <div class="popup-card">
+            <a><i class="fas fa-times close-btn"></i></a>
+            <div class="service-img">
+              <img src="dog.png" alt="Woman" />
+            </div>
+            <div class="infoservice">
+              <h2>Portrait photography<br /><span>blabla</span></h2>
+              <p>
+                nu mai vreau sa lucrez pentru licenta m-am saturat vreau vacanta
+                si mi-i somn cui ii pasa si nu stiu cum se face da pare ca nimic
+                nu merge la pagina asta de servicii
+              </p>
+              <span class="price">$50</span>
+              <a href="#" class="add-cart-btn">Add to Cart</a>
+              <a href="#" class="more-photos">More photos</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <script type="text/javascript">
-            var slideIndex = 1;
-            showDivs(slideIndex);
+      <script type="text/javascript">
+        var slideIndex = 1;
+        showDivs(slideIndex);
 
-            function plusDivs(n) {
-                showDivs(slideIndex += n);
-            }
+        function plusDivs(n) {
+          showDivs((slideIndex += n));
+        }
 
-            function showDivs(n) {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                if (n > x.length) { slideIndex = 1 }
-                if (n < 1) { slideIndex = x.length }
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                }
-                x[slideIndex - 1].style.display = "block";
-            }
-        </script>
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          if (n > x.length) {
+            slideIndex = 1;
+          }
+          if (n < 1) {
+            slideIndex = x.length;
+          }
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          x[slideIndex - 1].style.display = "block";
+        }
+      </script>
     </section>
-</body>
+  </body>
 </html>

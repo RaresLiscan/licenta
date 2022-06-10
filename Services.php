@@ -7,16 +7,17 @@ $DATABASE_PASS = '';
 $DATABASE_NAME = 'fotografie';
 // Încercați să vă conectați folosind informațiile de mai sus.
 $conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if ( mysqli_connect_errno() ) {
-// Dacă există o eroare la conexiune, opriți scriptul și afișați eroarea.
-exit('Esec Conectare MySQL: ' . mysqli_connect_error());
+if (mysqli_connect_errno()) {
+    // Dacă există o eroare la conexiune, opriți scriptul și afișați eroarea.
+    exit('Esec Conectare MySQL: ' . mysqli_connect_error());
 }
 ?>
 <?php
-require_once "ShoppingCart.php";?>
+require_once "ShoppingCart.php"; ?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,11 +26,12 @@ require_once "ShoppingCart.php";?>
     <link rel="stylesheet" href="style.css" />
 
 </head>
-    <body>
-        <!--menu bar-->
+
+<body>
+    <!--menu bar-->
     <nav>
         <div class="logo">
-            <h4>ZOOMIN</h4>
+            <img src="poze/icon.png" />
         </div>
         <ul class="nav-links">
             <li><img class="icon2" src="poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="Login.html">Login</a></li>
@@ -51,59 +53,60 @@ require_once "ShoppingCart.php";?>
 
     <!--servicii-->
     <section class="servicii">
-        <div class="containerservices"> 
+        <div class="containerservices">
             <div class="service" style=' display: flex;
             flex-wrap: wrap; justify-content:center;
             align-items: center;'>
-            <?php
-             $shoppingCart = new ShoppingCart();
-             $query="SELECT * FROM services";
-             $product_array = $shoppingCart->getAllProduct($query);
-             $resultset=mysqli_query($conn, $query) or die ("database error: " . mysqli_error($conn));
-             if (! empty($product_array)) {
-                 foreach ($product_array as $key => $value) {
-            ?>
-                <div class="service-card">
-                    <h2 class="name"><?php echo $product_array[$key]["servicename"]; ?></h2>
-                    <span class="price"><?php echo $product_array[$key]["price"]; ?></span>
-                    <a class="popup-btn">Quick view</a>
-                    <img class="service-img" src="<?php echo $product_array[$key]["photo0"]; ?>" style="width:100%" />
-                </div>
-                <div class="popup-view">
-                    <div class="popup-card">
-                        <a><i class="fas fa-times close-btn"></i></a>
-                        <div class="slideshow-container">
-                            <div class="mySlides fade">
-                                <div class="numbertext">1 / 3 </div>
-                                <img class="imgpopup" src="<?php echo $product_array[$key]["photo1"]; ?>" style="width:100%"/>
-                            </div>
-                            <div class="mySlides fade">
-                                <div class="numbertext">2 / 3 </div>
-                                <img class="imgpopup" src="<?php echo $product_array[$key]["photo2"]; ?>" style="width:100%" />
-                            </div>
-                            <div class="mySlides fade">
-                                <div class="numbertext">3 / 3 </div>
-                                <img class="imgpopup" src="<?php echo $product_array[$key]["photo3"]; ?>" style="width:100%" />
-                            </div>
-
-                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                        </div>
-                        <div class="infoservice">
-                          <form method="post" action="cos.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
-                            <h2 name="servicename"><?php echo $product_array[$key]["servicename"]; ?><br /></h2>
-                            <p name="description"><?php echo $product_array[$key]["description"]; ?></p>
-                            <p name="phnumber">Number of photos: <span><?php echo $product_array[$key]["phnumber"]; ?></span></p>
-                            <p name="time">Shooting time: <span><?php echo $product_array[$key]["timeph"]; ?></span> hour</p>
-                            <p name="clothing">Number of clothing pieces: <span><?php echo $product_array[$key]["clothing"]; ?></span></p>
+                <?php
+                $shoppingCart = new ShoppingCart();
+                $query = "SELECT * FROM services";
+                $product_array = $shoppingCart->getAllProduct($query);
+                $resultset = mysqli_query($conn, $query) or die("database error: " . mysqli_error($conn));
+                if (!empty($product_array)) {
+                    foreach ($product_array as $key => $value) {
+                ?>
+                        <div class="service-card">
+                            <h2 class="name"><?php echo $product_array[$key]["servicename"]; ?></h2>
                             <span class="price"><?php echo $product_array[$key]["price"]; ?></span>
-                            <input type="number" name="quantity" value="50" size="2" min="50" max="500" step="50"/>
-                            <input type="submit" value="Add to cart" class="btnAddAction" />
-                            </form>
+                            <a class="popup-btn">Quick view</a>
+                            <img class="service-img" src="<?php echo $product_array[$key]["photo0"]; ?>" style="width:100%" />
                         </div>
-                    </div>
-                </div>
-                <?php }}
+                        <div class="popup-view">
+                            <div class="popup-card">
+                                <a><i class="fas fa-times close-btn"></i></a>
+                                <div class="slideshow-container">
+                                    <div class="mySlides fade">
+                                        <div class="numbertext">1 / 3 </div>
+                                        <img class="imgpopup" src="<?php echo $product_array[$key]["photo1"]; ?>" style="width:100%" />
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <div class="numbertext">2 / 3 </div>
+                                        <img class="imgpopup" src="<?php echo $product_array[$key]["photo2"]; ?>" style="width:100%" />
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <div class="numbertext">3 / 3 </div>
+                                        <img class="imgpopup" src="<?php echo $product_array[$key]["photo3"]; ?>" style="width:100%" />
+                                    </div>
+
+                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                </div>
+                                <div class="infoservice">
+                                    <form method="post" action="cos.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+                                        <h2 name="servicename"><?php echo $product_array[$key]["servicename"]; ?><br /></h2>
+                                        <p name="description"><?php echo $product_array[$key]["description"]; ?></p>
+                                        <p name="phnumber">Number of photos: <span><?php echo $product_array[$key]["phnumber"]; ?></span></p>
+                                        <p name="time">Shooting time: <span><?php echo $product_array[$key]["timeph"]; ?></span> hour</p>
+                                        <p name="clothing">Number of clothing pieces: <span><?php echo $product_array[$key]["clothing"]; ?></span></p>
+                                        <span class="price"><?php echo $product_array[$key]["price"]; ?></span>
+                                        <input type="number" name="quantity" value="50" size="2" min="50" max="500" step="50" />
+                                        <input type="submit" value="Add to cart" class="btnAddAction" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                <?php }
+                }
                 ?>
             </div>
         </div>
@@ -113,7 +116,7 @@ require_once "ShoppingCart.php";?>
             var popupBtns = document.querySelectorAll('.popup-btn');
             var closeBtns = document.querySelectorAll('.close-btn');
 
-            var popup = function (popupClick) {
+            var popup = function(popupClick) {
                 popupViews[popupClick].classList.add('active');
             }
 
@@ -134,5 +137,6 @@ require_once "ShoppingCart.php";?>
         </script>
     </section>
     <script src="slider.js"></script>
-    </body>
+</body>
+
 </html>
