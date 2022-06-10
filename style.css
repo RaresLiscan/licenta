@@ -18,6 +18,7 @@ nav {
 }
 .logo {
     /*pentru cand o sa am un logo, acum fac dupa tutorialul responsive navigation bar tutorial*/
+    margin-top: 3px;
     color: rgb(0,0,0);
     text-transform: uppercase;
     letter-spacing: 5px;
