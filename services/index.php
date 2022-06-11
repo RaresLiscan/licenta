@@ -31,7 +31,7 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
     <!--menu bar-->
     <nav>
         <div class="logo">
-            <h4>ZOOMIN</h4>
+            <img src="../poze/icon.png" />
         </div>
         <ul class="nav-links">
             <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>

@@ -56,19 +56,23 @@ if (!empty($_GET["action"])) {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<HTML>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
 
-<HEAD>
-    <TITLE>creare cos permament in PHP</TITLE>
-    <link href="../style.css" type="text/css" rel="stylesheet" />
-</HEAD>
+<body>
 
-<BODY>
+
     <!--menu bar-->
     <nav>
         <div class="logo">
-            <h4>ZOOMIN</h4>
+            <img src="../poze/icon.png" />
         </div>
         <ul class="nav-links">
             <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>
@@ -89,13 +93,14 @@ if (!empty($_GET["action"])) {
     <script src="../navigation.js"></script>
     <script src="./cartSubmit.js"></script>
 
+
     <!--cos-->
     <main class="containercos">
         <div class="item-flex">
 
             <section class="cart">
                 <div class="cart-item-box">
-                    <h2 class="section-heading">Order Summery</h2>
+                    <h2 class="section-heading">Order Summary</h2>
                     <div class="product-cart">
                         <div class="cart">
                             <?php
@@ -104,57 +109,57 @@ if (!empty($_GET["action"])) {
                                 $item_total = 0;
                             ?>
 
-                                <table cellpadding="10" cellspacing="1">
-                                    <tbody>
 
 
-                                        <?php
-                                        foreach ($cartItem as $item) {
-                                        ?>
-                                            <div class="img-box">
-                                                <img src="../<?php echo $item["photo0"]; ?>" alt="<?php echo $item["photo0"]; ?>" style="width:80px" class="product-img" />
-                                            </div>
-                                            <div class="detail">
-                                                <h4 class="product-name"><strong>NAME: <?php echo $item["servicename"]; ?><strong></h4>
-                                                <div class="wrappercos">
-                                                    <div class="product-name">
-                                                        <strong>QUANTITY: <?php echo $item["quantity"]; ?> <br>
-                                                    </div>
-                                                    <div class="product-name">
-                                                        <strong>PRICE: <?php echo $item["price"]; ?>
-                                                    </div>
-                                                    <div class="product-reservation">
-                                                        <form id="cart-<?php echo $item['cart_id']; ?>" action="../reservation/index.php" method="post" style="display: none">
-                                                            <input type="text" style="display: none" name="cart_id" value="<?php echo $item['cart_id']; ?>">
-                                                            <input type="submit" style="display: none;">
-                                                        </form>
-                                                        <div>
-                                                            <p onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" name="rezerv" style="color:black; cursor: pointer;">Make a reservation
+                                <?php
+                                foreach ($cartItem as $item) {
+                                ?>
+                                    <div class=" img-box">
+                                        <img src="../<?php echo $item["photo0"]; ?>" alt="Portrait photography" style="width:80px" class="product-img" />
+                                    </div>
+                                    <div class="detail">
+                                        <h4 class="product-name"><strong>NAME: <?php echo $item["servicename"]; ?><strong></h4>
+                                        <div class="wrappercos">
+                                            <div><a href="./index.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="trash" src="../poze/icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a>
+
+                                                <div class="product-name">
+                                                    <strong>QUANTITY: <?php echo $item["quantity"]; ?> <br>
+                                                </div>
+                                                <div class="product-name">
+                                                    <strong>PRICE: <?php echo $item["price"]; ?>
+                                                </div>
+                                                <div class="product-reservation">
+                                                    <form id="cart-<?php echo $item['cart_id']; ?>" action="../reservation/index.php" method="post" style="display: none">
+                                                        <input type="text" style="display: none" name="cart_id" value="<?php echo $item['cart_id']; ?>">
+                                                        <input type="submit" style="display: none;">
+                                                    </form>
+                                                    <div>
+                                                        <!-- <p onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" name="rezerv" style="color:black; cursor: pointer;">Make a reservation
+                                                                <p> -->
+                                                        <div onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" class="rezerv">
+                                                            <p name="rezerv" style="color:black;">Make a reservation
                                                             <p>
                                                         </div>
-                                                        <!--input type="submit" name="submit" value="Send" />-->
-
-
                                                     </div>
+                                                    <!--input type="submit" name="submit" value="Send" />-->
+
+
                                                 </div>
-                                                <div><a href="./index.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="icon2" src="../poze/icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a></div>
                                             </div>
 
+                                        </div>
 
 
-                                        <?php
-                                            $item_total += ($item["price"] * $item["quantity"]);
-                                            echo  $item_total;
-                                        }
-                                        ?>
-                                        <tr>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    </div>
+                                <?php } ?>
+                                <?php
+                                $item_total += ($item["price"] * $item["quantity"]);
+                                echo "TOTAL: $" . $item_total;
+                                ?>
                             <?php
                             }
                             ?>
+
                         </div>
                     </div>
                 </div>
@@ -196,23 +201,10 @@ if (!empty($_GET["action"])) {
                             </div>
                         </div>
                     </form>
-                    <!-- <div class="amount">
-                        <div class="total">
-                            <td colspan="3" text-align=right><strong>Total fara discount: <?php //echo  $item_total . " LEI" . "<br>" ;
-                                                                                            ?></strong></td>   
-                        </div>
-                    </div>-->
                 </div>
-        </div>
+            </section>
         </div>
     </main>
-</BODY>
+</body>
 
-</HTML>
-
-
-<!-- if (isset($_POST['discount_token'])) {
-                              echo 'Total cu discount: ';
-                              echo $item_total - ( $r['amount']*$item_total );
-                              echo 'LEI';} ?>
--->
+</html>

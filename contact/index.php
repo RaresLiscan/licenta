@@ -1,5 +1,5 @@
 ﻿<?php
-include(dirname(__DIR__) . "\db\Conectare.php");
+require_once("../db/Conectare.php");
 $error = '';
 if (isset($_POST['submit'])) {
     // preluam datele de pe formular
@@ -41,7 +41,7 @@ $mysqli->close();
     <!--menu bar-->
     <nav>
         <div class="logo">
-            <h4>ZOOMIN</h4>
+            <img src="../poze/icon.png" />
         </div>
         <ul class="nav-links">
             <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>
@@ -73,32 +73,38 @@ $mysqli->close();
                 </p>
                 <div class="info">
                     <div class="information">
-                        <img src="contact.png" class="icon-contactpage" alt="contact icon" />
-                        <p>Aici scriem locatia</p>
+                        <img src="../poze/map-icon.png" class="icon-contactpage" alt="contact icon" />
+                        <p>Bul. Muncii, Cluj Napoca</p>
                     </div>
                     <div class="information">
-                        <img src="contact.png" class="icon-contactpage" alt="contact icon" />
-                        <p>Aici scriem email</p>
+                        <img src="../poze/mail-icon.png" class="icon-contactpage" alt="contact icon" />
+                        <p>zoomin@gmail.com</p>
                     </div>
                     <div class="information">
-                        <img src="contact.png" class="icon-contactpage" alt="contact icon" />
-                        <p>Aici scriem nr de telefon</p>
+                        <img src="../poze/phone-icon.png" class="icon-contactpage" alt="contact icon" />
+                        <p>+40714 837 290</p>
                     </div>
                 </div>
+                <p>Connect with us</p>
                 <div class="social-media">
-                    <p>Connect with us</p>
+
                     <div class="social-icons">
-                        <a href="#">
-                            <img src="contact.png" class="socials-contactpage" alt="contact icon" />
+
+                        <a href="#" class="social-links">
+                            <img src="../poze/facebook-icon.png" class="socials-contactpage" alt="contact icon" width="35px" />
+
                         </a>
-                        <a href="#">
-                            <img src="contact.png" class="socials-contactpage" alt="contact icon" />
+                        <a href="#" class="social-links">
+                            <img src="../poze/instagram-icon.png" class="socials-contactpage" alt="contact icon" width="35px" />
+
                         </a>
-                        <a href="#">
-                            <img src="contact.png" class="socials-contactpage" alt="contact icon" />
+                        <a href="#" class="social-links">
+                            <img src="../poze/twitter-icon.png" class="socials-contactpage" alt="contact icon" width="40px" />
+
                         </a>
-                        <a href="#">
-                            <img src="contact.png" class="socials-contactpage" alt="contact icon" />
+                        <a href="#" class="social-links">
+                            <img src="../poze/linked-icon.png" class="socials-contactpage" alt="contact icon" width="70px" />
+
                         </a>
                     </div>
                 </div>
