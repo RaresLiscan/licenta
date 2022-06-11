@@ -1293,6 +1293,14 @@ textarea.input {
     display: flex;
     gap: 20px;
 }
+
+.cart-submit-button {
+    border: 0;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 14;
+}
+
 .wrappercos {
     align-content: center;
     align-items: center;

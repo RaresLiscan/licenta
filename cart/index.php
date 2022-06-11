@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
 
 //Dacă utilizatorul nu este conectat redirecționează la pagina de autentificare ...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: Login.html');
+    header('Location: /licenta/login');
     exit;
 }
 
@@ -71,13 +71,13 @@ if (!empty($_GET["action"])) {
             <h4>ZOOMIN</h4>
         </div>
         <ul class="nav-links">
-            <li><img class="icon2" src="../poze/login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>
-            <li><img class="icon2" src="../poze/home.png" alt="home icon" style="width:25px; height:25px;" /><a href="/licenta/">Home</a></li>
-            <li><img class="icon2" src="../poze/about.png" alt="about us icon" style="width:25px; height:25px;" /><a href="/licenta/about">About us</a></li>
-            <li><img class="icon2" src="../poze/camera.png" alt="services icon" style="width:25px; height:25px;" /><a href="Services.php">Services</a>
-            <li><img class="icon2" src="../poze/feedback.png" alt="feedback icon" style="width:25px; height:25px;" /><a href="Feedback.php">Feedback</a></li>
-            <li><img class="icon2" src="../poze/contact.png" alt="contact icon" style="width:25px; height:25px;" /><a href="Contact.php">Contact</a></li>
-            <li><img class="icon2" src="../poze/cart.png" alt="cart icon" style="width:25px; height:25px;" /><a href="Cos.php">Cosul meu</a></li>
+            <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>
+            <li><img class="icon2" src="../poze\home.png" alt="home icon" style="width:25px; height:25px;" /><a href="/licenta/">Home</a></li>
+            <li><img class="icon2" src="../poze\about.png" alt="about us icon" style="width:25px; height:25px;" /><a href="/licenta/about">About us</a></li>
+            <li><img class="icon2" src="../poze\camera.png" alt="services icon" style="width:25px; height:25px;" /><a href="/licenta/services">Services</a>
+            <li><img class="icon2" src="../poze\feedback.png" alt="feedback icon" style="width:25px; height:25px;" /><a href="/licenta/feedback">Feedback</a></li>
+            <li><img class="icon2" src="../poze\contact.png" alt="contact icon" style="width:25px; height:25px;" /><a href="/licenta/contact">Contact</a></li>
+            <li><img class="icon2" src="../poze\cart.png" alt="cart icon" style="width:25px; height:25px;" /><a href="/licenta/cart">Cosul meu</a></li>
         </ul>
         <div class="burger">
             <!--aici se afla cele 3 liniute care apar pe marginea din dreapta la varianta mobile-->
@@ -87,6 +87,7 @@ if (!empty($_GET["action"])) {
         </div>
     </nav>
     <script src="../navigation.js"></script>
+    <script src="./cartSubmit.js"></script>
 
     <!--cos-->
     <main class="containercos">
@@ -123,11 +124,17 @@ if (!empty($_GET["action"])) {
                                                         <strong>PRICE: <?php echo $item["price"]; ?>
                                                     </div>
                                                     <div class="product-reservation">
-                                                        <form action="#" method="post">
-                                                            <div><a href="/licenta/reservation" name="rezerv" style="color:black;">Make a reservation<a></div>
-                                                            <!--input type="submit" name="submit" value="Send" />-->
-
+                                                        <form id="cart-<?php echo $item['cart_id']; ?>" action="../reservation/index.php" method="post" style="display: none">
+                                                            <input type="text" style="display: none" name="cart_id" value="<?php echo $item['cart_id']; ?>">
+                                                            <input type="submit" style="display: none;">
                                                         </form>
+                                                        <div>
+                                                            <p onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" name="rezerv" style="color:black; cursor: pointer;">Make a reservation
+                                                            <p>
+                                                        </div>
+                                                        <!--input type="submit" name="submit" value="Send" />-->
+
+
                                                     </div>
                                                 </div>
                                                 <div><a href="./index.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="icon2" src="../poze/icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a></div>
@@ -141,8 +148,6 @@ if (!empty($_GET["action"])) {
                                         }
                                         ?>
                                         <tr>
-                                            <!--<td colspan="3" text-align=right><strong>Total:</strong></td>
-    <td text-align=right>//echo "RON ".$item_total; ?></td>-->
                                             <td></td>
                                         </tr>
                                     </tbody>

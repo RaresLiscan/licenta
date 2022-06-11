@@ -133,7 +133,7 @@ $mysqli->close();
             </div>
         </div>
     </div>
-    <script src="../app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

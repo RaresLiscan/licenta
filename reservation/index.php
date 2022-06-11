@@ -1,39 +1,13 @@
 ﻿<?php
-require_once dirname(__DIR__) . "\db\ShoppingCart.php";
-include(dirname(__DIR__) . "\db\Conectare.php");
-$error = '';
 session_start();
+require_once "../db/ShoppingCart.php";
 
-//$query="SELECT cart.id FROM cart LEFT JOIN reservations ON cart.id=reservations.order_id";
-
-
-if (isset($_POST['submit'])) {
-    // preluam datele de pe formular
-
-    $name = htmlentities($_POST['name'], ENT_QUOTES);
-    $phonenumb = htmlentities($_POST['phonenumb'], ENT_QUOTES);
-    $shootdate = date(htmlentities($_POST['shootdate'], ENT_QUOTES));
-    $shoottime = date(htmlentities($_POST['shoottime'], ENT_QUOTES));
-    $people = htmlentities($_POST['people'], ENT_QUOTES);
-    $location = htmlentities($_POST['location'], ENT_QUOTES);
-
-    // verificam daca sunt completate
-    if ($name == '' || $phonenumb == '' || $shootdate == '' || $shoottime == '' || $people == '' || $location == '') {
-
-        $error = 'ERROR: Campuri goale!';
-    } else {
-
-        if ($stmt = $mysqli->prepare("INSERT into reservations (name, phonenumb, shootdate, shoottime, people, location) VALUES (?, ?, ?, ?, ?, ?)")) {
-            $stmt->bind_param("ssssss", $name, $phonenumb, $shootdate, $shoottime, $people, $location);
-            $stmt->execute();
-            $stmt->close();
-        } else {
-            echo "ERROR: Nu se poate executa insert.";
-        }
-    }
+$user_id = $_SESSION['id'];
+$cart_id = $_POST['cart_id'];
+if (!isset($cart_id) || !isset($user_id)) {
+    header("Location: /licenta/cart");
 }
 
-$mysqli->close();
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +50,7 @@ $mysqli->close();
     <section class="booking">
 
         <div class="containerbooking1">
-            <form action="#" class="bookform" method="post">
+            <form action="./submit_reservation.php" class="bookform" method="post">
                 <h2 class="headingbook headingbook-yellow">Reservation Online</h2>
 
                 <div class="form-field">
@@ -113,6 +87,7 @@ $mysqli->close();
                         <option value="Castel Bontida">Castel Bontida</option>
                     </select>
                 </div>
+                <input type="hidden" name="cart_id" value="<?php echo $_POST['cart_id']; ?>">
 
                 <!-- <button class="btnbook" name="submit">Submit</button>-->
                 <input type="submit" name="submit" value="Send" />

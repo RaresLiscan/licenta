@@ -92,7 +92,7 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
                                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
                                 </div>
                                 <div class="infoservice">
-                                    <form method="post" action="cos.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+                                    <form method="post" action="../cart/index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
                                         <h2 name="servicename"><?php echo $product_array[$key]["servicename"]; ?><br /></h2>
                                         <p name="description"><?php echo $product_array[$key]["description"]; ?></p>
                                         <p name="phnumber">Number of photos: <span><?php echo $product_array[$key]["phnumber"]; ?></span></p>

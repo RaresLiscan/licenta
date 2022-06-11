@@ -34,6 +34,7 @@ class DBController
         if (!empty($resultset)) {
             return $resultset;
         }
+        return null;
     }
     function updateDB($query, $params = array())
     {

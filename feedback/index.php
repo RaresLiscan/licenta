@@ -3,7 +3,7 @@ include(dirname(__DIR__) . "\db\Conectare.php");
 $error = '';
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: Login.html');
+    header('Location: /licenta/login');
     exit;
 }
 $id_user = $_SESSION['id'];
