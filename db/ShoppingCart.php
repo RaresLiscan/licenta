@@ -20,9 +20,6 @@ class ShoppingCart extends DBController
    }
    function getMemberCartItem($id_user)
    {
-      // $query = "SELECT services.*, cart.id as cart_id,cart.quantity
-      //          FROM services, cart
-      //          WHERE services.id = cart.service_id AND cart.id_user = ?";
       $query = "SELECT services.*, cart.id as cart_id, cart.quantity FROM services 
                INNER JOIN cart ON cart.service_id=services.id AND cart.id_user=?";
 
@@ -77,7 +74,7 @@ class ShoppingCart extends DBController
    }
    function deleteCartItem($cart_id)
    {
-      $query = "DELETE FROM cart WHERE id = ?";
+      $query = "UPDATE cart SET id_user=-1 WHERE id = ?";
 
       $params = array(array("param_type" => "i", "param_value" => $cart_id));
 
@@ -85,7 +82,7 @@ class ShoppingCart extends DBController
    }
    function emptyCart($id_user)
    {
-      $query = "DELETE FROM cart WHERE id_user = ?";
+      $query = "UPDATE cart SET id_user=-1 WHERE id_user = ?";
 
       $params = array(array("param_type" => "i", "param_value" => $id_user));
 

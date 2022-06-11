@@ -60,6 +60,40 @@ if (!isset($cart_id) || !isset($user_id)) {
     <title>Reservation</title>
 
     <link href="../style.css" type="text/css" rel="stylesheet" />
+    <link href="./timepicker.css" type="text/css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="./timepicker.js"></script>
+
+    <script>
+        $(function() {
+            $('#shoottime').timepicker({
+                'timeFormat': 'H:i:s'
+            });
+        });
+
+
+        const updateReservationDate = (event) => {
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onload = function() {
+                const responseJson = JSON.parse(this.responseText);
+
+                const occupiedTimes = responseJson.map(pair => [pair.start_time, pair.end_time]);
+                $(function() {
+                    $('#shoottime').timepicker({
+                        'disableTimeRanges': occupiedTimes,
+                        'timeFormat': 'H:i:s'
+                    });
+                });
+                console.log(JSON.parse(this.responseText));
+            }
+            xhttp.open("GET", `get_busy_hours.php?date=${event.target.value}`);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+        }
+    </script>
+
 </head>
 
 <body>
@@ -109,15 +143,15 @@ if (!isset($cart_id) || !isset($user_id)) {
                 <div class="form-field">
                     <p>Date</p>
                     <div>
-                        <input name="shootdate" type="date" min="<?= date('Y-m-d') ?>" <?php echo get_field_value_if_set("shootdate") ?> />
+                        <input name="shootdate" type="date" min="<?= date('Y-m-d') ?>" onchange="updateReservationDate(event)" <?php echo get_field_value_if_set("shootdate") ?> />
                         <?php echo '<p class="error">' . $date_error . '</p>' ?>
                     </div>
                 </div>
                 <div class="form-field">
                     <p>Time</p>
                     <div>
-                        <input name="shoottime" type="time" <?php echo get_field_value_if_set("shoottime") ?> />
-                        <?php echo '<p class="error">' . $date_error . '</p>' ?>
+                        <input name="shoottime" type="text" style="width: 145px;" placeholder="hh:mm am" class="time ui-timepicker-input" id="shoottime" <?php echo get_field_value_if_set("shoottime") ?> />
+                        <?php echo '<p class="error">' . $time_error . '</p>' ?>
                     </div>
                 </div>
                 <div class="form-field">
@@ -152,6 +186,7 @@ if (!isset($cart_id) || !isset($user_id)) {
             </form>
         </div>
     </section>
+
 </body>
 
 </html>

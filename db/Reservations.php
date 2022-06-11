@@ -5,6 +5,13 @@ require_once "DBController.php";
 class Reservation extends DBController
 {
 
+    function getAllReservations()
+    {
+        $query = "SELECT * FROM reservations";
+
+        return $this->getDBResult($query);
+    }
+
     function addReservation($order_id, $name, $phoneNumber, $shootDate, $shootTime, $people, $location)
     {
 

@@ -118,45 +118,52 @@ if (!empty($_GET["action"])) {
                                 foreach ($cartItem as $item) {
                                     $item_total += ($item["price"] * $item["quantity"]);
                                 ?>
-                                    <div class=" img-box">
-                                        <img src="../<?php echo $item["photo0"]; ?>" alt="Portrait photography" style="width:80px" class="product-img" />
-                                    </div>
-                                    <div class="detail">
-                                        <h4 class="product-name"><strong>NAME: <?php echo $item["servicename"]; ?><strong></h4>
-                                        <div class="wrappercos">
-                                            <div><a href="./index.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="trash" src="../poze/icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a>
+                                    <div class="product-item">
+                                        <div class=" img-box">
+                                            <img src="../<?php echo $item["photo0"]; ?>" alt="Portrait photography" style="width:80px" class="product-img" />
+                                        </div>
+                                        <div class="detail">
+                                            <h4 class="product-name"><strong>NAME: <?php echo $item["servicename"]; ?></strong></h4>
+                                            <div class="wrappercos">
+                                                <div><a href="./index.php?action=remove&id=<?php echo $item["cart_id"]; ?>" class="btnRemoveAction"><img class="trash" src="../poze/icon-delete.png" alt="icon-delete" title="Remove Item" style="width:25px; height:25px;" /></a>
 
-                                                <div class="product-name">
-                                                    <strong>QUANTITY: <?php echo $item["quantity"]; ?> <br>
-                                                </div>
-                                                <div class="product-name">
-                                                    <strong>PRICE: <?php echo $item["price"]; ?>
-                                                </div>
-                                                <div class="product-reservation">
-                                                    <form id="cart-<?php echo $item['cart_id']; ?>" action="../reservation/index.php" method="post" style="display: none">
-                                                        <input type="text" style="display: none" name="cart_id" value="<?php echo $item['cart_id']; ?>">
-                                                        <input type="submit" style="display: none;">
-                                                    </form>
-                                                    <div>
-                                                        <div onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" class="rezerv">
-                                                            <p name="rezerv" style="color:black;">Make a reservation
-                                                            <p>
-                                                        </div>
+                                                    <div class="product-name">
+                                                        <strong>QUANTITY: <?php echo $item["quantity"]; ?></strong> <br>
                                                     </div>
+                                                    <div class="product-name">
+                                                        <strong>PRICE / SESSION: $<?php echo $item["price"]; ?></strong>
+                                                    </div>
+                                                    <div class="product-name">
+                                                        <strong>TOTAL PRICE: $<?php echo $item["price"] * $item['quantity']; ?></strong>
+                                                    </div>
+                                                    <div class="product-reservation">
+                                                        <form id="cart-<?php echo $item['cart_id']; ?>" action="../reservation/index.php" method="post" style="display: none">
+                                                            <input type="text" style="display: none" name="cart_id" value="<?php echo $item['cart_id']; ?>">
+                                                            <input type="submit" style="display: none;">
+                                                        </form>
+                                                        <div>
+                                                            <div onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" class="rezerv">
+                                                                <p name="rezerv" style="color:black;">Make a reservation
+                                                                <p>
+                                                            </div>
+                                                        </div>
 
 
+                                                    </div>
                                                 </div>
+
                                             </div>
 
+
                                         </div>
-
-
                                     </div>
                                 <?php } ?>
-                                <?php
+                                <strong>
+                                    <?php
 
-                                echo "TOTAL: $" . $item_total;
-                                ?>
+                                    echo "TOTAL: $" . $item_total;
+                                    ?>
+                                </strong>
                             <?php
                             }
                             ?>

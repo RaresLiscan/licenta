@@ -1288,6 +1288,11 @@ textarea.input {
 .product-cart:not(:last-child){
     margin-bottom:20px;
 }
+
+.product-item {
+    margin-top: 15px;
+}
+
 .product-cart .cart {
     position: relative;
     display: flex;
