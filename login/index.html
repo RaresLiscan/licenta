@@ -3,8 +3,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
         <title>Login</title>
         <link rel="stylesheet" href="../style.css"/>
     </head>
@@ -45,31 +45,26 @@
             <div class="container1">
                 <form action="Login.php" class="login active" method="post" autocomplete="off">
                     <h2 class="titlu">Login with your account</h2>
-                    <!--<div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <div class="input-group">
-                                                                    <input type="email" id="email" placeholder="Email adress" />
-                                                                    <i class='bx bx-envelope'></i>
-                                                                </div>
-                                                        </div>-->
                     <div class="form-group">
                         <label for="username">Username</label>
                         <div class="input-group">
                             <input type="text" name="username" id="username" placeholder="Username"/>
-                            <i class='bx bx-envelope'></i>
+                            <i>
+                                <img src="../poze/user-img.png" width="15px"/></i>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <div class="input-group">
                             <input type="password" name="password" pattern=".{8,}" id="password" placeholder="Your password"/>
-                            <i class='bx bx-lock-alt'></i>
+                            <i><img src="../poze/lock-img.png" width="15px"/></i>
                         </div>
                         <span class="help-text">At least 8 characters</span>
                     </div>
                     <input type="submit" class="btn-submit"/>Login
-                    <a href="#">Forgot password?</a>
-                    <p>I don't have an account.<a href="#" onclick="switchForm('register',event)">Register</a>
+                    <a href="#" class="login-buttons">Forgot password?</a>
+                    <p>
+                        I don't have an account.<a href="#" onclick="switchForm('register',event)" class="login-buttons">Register</a>
                     </p>
                 </form>
 
@@ -79,34 +74,27 @@
                         <label for="username">Username</label>
                         <div class="input-group">
                             <input type="text" id="username" name="username" placeholder="Username"/>
-                            <i class='bx bx-envelope'></i>
+                            <i><img src="../poze/user-img.png" width="15px"/></i>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <div class="input-group">
                             <input type="email" id="email" name="email" placeholder="Email adress"/>
-                            <i class='bx bx-envelope'></i>
+                            <i><img src="../poze/mail-icon.png" width="15px"/></i>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <div class="input-group">
                             <input type="password" name="password" pattern=".{8,}" id="password" placeholder="Your password"/>
-                            <i class='bx bx-lock-alt'></i>
+                            <i><img src="../poze/lock-img.png" width="15px"/></i>
                         </div>
                         <span class="help-text">At least 8 characters</span>
                     </div>
-                    <!-- <div class="form-group">
-                                                            <label for="password">Confirm password</label>
-                                                            <div class="input-group">
-                                                                <input type="password" id="confirm-password" name="password" placeholder="Enter password again" />
-                                                                <i class='bx bx-lock-alt'></i>
-                                                            </div>
-                                                                    <span class="help-text">Confirm password must be the same with password</span>
-                                                        </div>-->
                     <input type="submit" class="btn-submit"/>Register
-                    <p>I already have an account.<a href="#" onclick="switchForm('login',event)">Login</a>
+                    <p>
+                        I already have an account.<a class="login-buttons" href="#" onclick="switchForm('login',event)">Login</a>
                     </p>
                 </form>
             </div>
