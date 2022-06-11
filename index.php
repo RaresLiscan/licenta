@@ -54,17 +54,26 @@ session_start();
     </div>
     <div class="split right">
         <div class="centered">
-            <h1 class="big-title"></br>Welcome to our photography page!<br />
-                We hope you enjoy it!</h1>
-            <h4 class="texthome">Ești pentru prima dată aici?
-                <br />Dacă da, dă-ne voie să ne prezentăm.<br />Ne numin ZOOMIN și suntem aici pentru a surprinde cele mai importante momente din viața ta!
-                <br />Da..știm, sunt atâtea alte firme care îți promit asta.<br />Cu ce suntem noi mai deosebiți?
+            <h1 class="big-title">
+                Welcome to our photography page!<br />
+                We hope you enjoy it!
+                <br /><br />
+            </h1>
+            <h4 class="texthome">
+                Ești pentru prima dată aici?
+                <br />Dacă da, dă-ne voie să ne
+                prezentăm.<br />Ne numin ZOOMIN și suntem aici pentru a surprinde cele
+                mai importante momente din viața ta!
+                <br />Da..știm, sunt atâtea alte
+                firme care îți promit asta.<br />Cu ce suntem noi mai deosebiți?
                 <br />Te lăsăm să te convingi singur!
+                <br /><br />
             </h4>
             <div class="homelogin">
-                <input type="button" value="Login" class="butonhome" onclick="location.href='/licenta/login';" />
+                <input type="button" value="Login" class="butonhome" onclick="location.href='Login.html';" />
             </div>
         </div>
+    </div>
 </body>
 
 </html>

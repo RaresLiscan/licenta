@@ -63,7 +63,7 @@ if (!empty($_GET["action"])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 
 <body>
@@ -147,20 +147,15 @@ if (!empty($_GET["action"])) {
                                                                 <p>
                                                             </div>
                                                         </div>
-
-
                                                     </div>
+
                                                 </div>
-
                                             </div>
-
-
                                         </div>
                                     </div>
                                 <?php } ?>
                                 <strong>
                                     <?php
-
                                     echo "TOTAL: $" . $item_total;
                                     ?>
                                 </strong>
@@ -171,8 +166,11 @@ if (!empty($_GET["action"])) {
                         </div>
                     </div>
                 </div>
-                <div><a href="/licenta/services" style="color:black;">Alegeti alt produs</a></div>
-                <div><a href="../logout.php" style="color:black;">Abandonati sesiunea de cumparare</a></div>
+
+                <div class="mass-cos-control">
+                    <a href="/licenta/services" style="color:black">Alegeti alt produs</a>
+                </div>
+
                 <div class="wrappercos">
                     <form action="" method="post">
                         <div class="discount-token">
@@ -197,7 +195,8 @@ if (!empty($_GET["action"])) {
                                     echo '<br>'; ?>
 
                                     <div class="total">
-                                    <?php echo 'Total cu discount: ';
+                                    <?php
+                                    echo 'Total cu discount: ';
                                     echo $item_total - ($r['amount'] * $item_total);
                                     echo 'LEI';
                                 }
