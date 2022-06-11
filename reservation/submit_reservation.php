@@ -1,38 +1,43 @@
 <?php
+require_once "../db/DBController.php";
 require_once "../db/ShoppingCart.php";
-require_once "../db/Conectare.php";
 require_once "../db/Reservations.php";
+function submit_reservation()
+{
 
-session_start();
 
-if (isset($_POST['cart_id'])) {
+    session_start();
 
-    // preluam datele de pe formular
+    if (isset($_POST['cart_id'])) {
 
-    $name = htmlentities($_POST['name'], ENT_QUOTES);
-    $phonenumb = htmlentities($_POST['phonenumb'], ENT_QUOTES);
-    $shootdate = date(htmlentities($_POST['shootdate'], ENT_QUOTES));
-    $shoottime = date(htmlentities($_POST['shoottime'], ENT_QUOTES));
-    $people = htmlentities($_POST['people'], ENT_QUOTES);
-    $location = htmlentities($_POST['location'], ENT_QUOTES);
-    $cart_id = $_POST['cart_id'];
+        // preluam datele de pe formular
 
-    // // verificam daca sunt completate
-    if ($name == '' || $phonenumb == '' || $shootdate == '' || $shoottime == '' || $people == '' || $location == '') {
+        $name = htmlentities($_POST['name'], ENT_QUOTES);
+        $phonenumb = htmlentities($_POST['phonenumb'], ENT_QUOTES);
+        $shootdate = date(htmlentities($_POST['shootdate'], ENT_QUOTES));
+        $shoottime = date(htmlentities($_POST['shoottime'], ENT_QUOTES));
+        $people = htmlentities($_POST['people'], ENT_QUOTES);
+        $location = htmlentities($_POST['location'], ENT_QUOTES);
+        $cart_id = $_POST['cart_id'];
 
-        $error = 'ERROR: Campuri goale!';
+        // // verificam daca sunt completate
+        if ($name == '' || $phonenumb == '' || $shootdate == '' || $shoottime == '' || $people == '' || $location == '') {
+
+            $error = 'ERROR: Campuri goale!';
+        } else {
+
+            $reservationsDb = new Reservation();
+
+            $reservationsDb->addReservation($cart_id, $name, $phonenumb, $shootdate, $shoottime, $people, $location);
+
+            $shoppingCart = new ShoppingCart();
+            $shoppingCart->deleteCartItem($cart_id);
+
+            header("Location: /licenta");
+        }
     } else {
-
-        $reservationsDb = new Reservation();
-
-        $reservationsDb->addReservation($cart_id, $name, $phonenumb, $shootdate, $shoottime, $people, $location);
-
-        $shoppingCart = new ShoppingCart();
-        $shoppingCart->deleteCartItem($cart_id);
-
-        $mysqli->close();
         header("Location: /licenta");
     }
-} else {
-    header("Location: /licenta");
 }
+
+// submit_reservation($_POST);

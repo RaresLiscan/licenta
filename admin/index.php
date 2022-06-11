@@ -42,7 +42,7 @@
     <h1 class="h1admin">Inregistrarile din tabela Services</h1>
     <?php
 
-    include(dirname(__DIR__) . "/db/Conectare.php");
+    require_once "../db/Conectare.php";
     // se preiau inregistrarile din baza de date
     if ($result = $mysqli->query("SELECT * FROM services ORDER BY id ")) { // Afisare inregistrari pe ecran
         if ($result->num_rows > 0) {
@@ -76,7 +76,7 @@
         echo "Error: " . $mysqli->error();
     }
     ?>
-    <a class="adminhref" href="./add-employee">Adaugarea unui nou produs</a>
+    <a class="adminhref" href="./add-product/">Adaugarea unui nou produs</a>
 
     <!--AFISARE UTILIZATORI-->
     <h1 class="h1admin">Inregistrarile din tabela Users</h1>

@@ -50,6 +50,16 @@ nav {
     margin: 5px;
     transition: all 0.3s ease;
 }
+
+li a {
+    transition: all ease-in-out 250ms;
+}
+
+li a:hover {
+    color: white;
+    transition: all ease-in-out 250ms;
+}
+
 @media screen and (max-width:1024px) {
     .nav-links{
         width:60%; /*ca atunci cand se face pagina mai mica sa existe spatiu mai mare intre cuvintele care reprezinta paginile*/
@@ -1804,6 +1814,7 @@ form .butoninserare input:hover{
     border-radius: 5px;
 
     cursor: pointer;
+    transition: all ease-in-out 250ms;
 }
 
 .rezerv:hover {
@@ -1826,3 +1837,12 @@ form .butoninserare input:hover{
     font-size: 25px;
 }
 
+.error {
+    color: red;
+    font-size: 10px;
+    /* display: none; */
+}
+
+.required {
+    color: red;
+}

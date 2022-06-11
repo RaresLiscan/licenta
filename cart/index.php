@@ -67,6 +67,9 @@ if (!empty($_GET["action"])) {
 </head>
 
 <body>
+    <script>
+        window.history.replaceState({}, document.title, "/licenta/cart/");
+    </script>
 
 
     <!--menu bar-->
@@ -113,6 +116,7 @@ if (!empty($_GET["action"])) {
 
                                 <?php
                                 foreach ($cartItem as $item) {
+                                    $item_total += ($item["price"] * $item["quantity"]);
                                 ?>
                                     <div class=" img-box">
                                         <img src="../<?php echo $item["photo0"]; ?>" alt="Portrait photography" style="width:80px" class="product-img" />
@@ -134,14 +138,11 @@ if (!empty($_GET["action"])) {
                                                         <input type="submit" style="display: none;">
                                                     </form>
                                                     <div>
-                                                        <!-- <p onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" name="rezerv" style="color:black; cursor: pointer;">Make a reservation
-                                                                <p> -->
                                                         <div onclick="handleCartSubmit(<?php echo $item['cart_id']; ?>)" class="rezerv">
                                                             <p name="rezerv" style="color:black;">Make a reservation
                                                             <p>
                                                         </div>
                                                     </div>
-                                                    <!--input type="submit" name="submit" value="Send" />-->
 
 
                                                 </div>
@@ -153,7 +154,7 @@ if (!empty($_GET["action"])) {
                                     </div>
                                 <?php } ?>
                                 <?php
-                                $item_total += ($item["price"] * $item["quantity"]);
+
                                 echo "TOTAL: $" . $item_total;
                                 ?>
                             <?php
@@ -195,7 +196,7 @@ if (!empty($_GET["action"])) {
                                 }
                                     ?>
                                     <div class="total">
-                                        <td colspan="3" text-align=right><strong>Total fara discount: <?php echo  $item_total . " LEI" . "<br>"; ?></strong></td>
+                                        <td colspan="3" text-align=right><strong>Total without discount: $<?php echo  $item_total . "<br>"; ?></strong></td>
                                     </div>
                                     </div>
                             </div>

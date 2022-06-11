@@ -75,28 +75,32 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
                             <div class="popup-card">
                                 <a><i class="fas fa-times close-btn"></i></a>
                                 <div class="slideshow-container">
-                                    <div class="mySlides fade">
+                                    <div class="mySlides fade" data-group="<?php echo $key; ?>">
                                         <div class="numbertext">1 / 3 </div>
-                                        <img class="imgpopup" src="<?php echo $product_array[$key]["photo1"]; ?>" style="width:100%" />
+                                        <img class="imgpopup" src="../<?php echo $product_array[$key]["photo1"]; ?>" style="width:100%" />
                                     </div>
-                                    <div class="mySlides fade">
+                                    <div class="mySlides fade" data-group="<?php echo $key; ?>">
                                         <div class="numbertext">2 / 3 </div>
-                                        <img class="imgpopup" src="<?php echo $product_array[$key]["photo2"]; ?>" style="width:100%" />
+                                        <img class="imgpopup" src="../<?php echo $product_array[$key]["photo2"]; ?>" style="width:100%" />
                                     </div>
-                                    <div class="mySlides fade">
+                                    <div class="mySlides fade" data-group="<?php echo $key; ?>">
                                         <div class="numbertext">3 / 3 </div>
-                                        <img class="imgpopup" src="<?php echo $product_array[$key]["photo3"]; ?>" style="width:100%" />
+                                        <img class="imgpopup" src="../<?php echo $product_array[$key]["photo3"]; ?>" style="width:100%" />
                                     </div>
 
-                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                                    <a class="prev" onclick="showSlides(-1)">&#10094;</a>
+                                    <a class="next" onclick="showSlides(1)">&#10095;</a>
                                 </div>
                                 <div class="infoservice">
                                     <form method="post" action="../cart/index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
                                         <h2 name="servicename"><?php echo $product_array[$key]["servicename"]; ?><br /></h2>
                                         <p name="description"><?php echo $product_array[$key]["description"]; ?></p>
                                         <p name="phnumber">Number of photos: <span><?php echo $product_array[$key]["phnumber"]; ?></span></p>
-                                        <p name="time">Shooting time: <span><?php echo $product_array[$key]["timeph"]; ?></span> hour</p>
+                                        <p name="time">Shooting time:
+                                            <span>
+                                                <?php echo (intdiv($product_array[$key]["timeph"], 60) != 0 ? (intdiv($product_array[$key]["timeph"], 60)) . "h " : "") . (($product_array[$key]["timeph"] % 60 != 0) ? ($product_array[$key]["timeph"] % 60) . "m" : ""); ?>
+                                            </span>
+                                        </p>
                                         <p name="clothing">Number of clothing pieces: <span><?php echo $product_array[$key]["clothing"]; ?></span></p>
                                         <span class="price"><?php echo $product_array[$key]["price"]; ?></span>
                                         <input type="number" name="quantity" value="50" size="2" min="50" max="500" step="50" />
@@ -118,6 +122,7 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
 
             var popup = function(popupClick) {
                 popupViews[popupClick].classList.add('active');
+                setActivePopup(popupClick);
             }
 
             popupBtns.forEach((popupBtn, i) => {
@@ -136,7 +141,7 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
             });
         </script>
     </section>
-    <script src="../slider.js"></script>
+    <script src="./slider.js"></script>
 </body>
 
 </html>
