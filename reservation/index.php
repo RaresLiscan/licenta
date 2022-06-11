@@ -57,7 +57,7 @@ if (!isset($cart_id) || !isset($user_id)) {
 
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Reservation</title>
 
     <link href="../style.css" type="text/css" rel="stylesheet" />
 </head>
