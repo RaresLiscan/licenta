@@ -1,5 +1,8 @@
 ﻿<?php
 require_once("../db/Conectare.php");
+
+session_start();
+
 $error = '';
 if (isset($_POST['submit'])) {
     // preluam datele de pe formular
@@ -44,7 +47,7 @@ $mysqli->close();
             <img src="../poze/icon.png" />
         </div>
         <ul class="nav-links">
-            <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login">Login</a></li>
+            <li><img class="icon2" src="../poze\login.png" alt="login icon" style="width:25px; height:25px;" /><a href="/licenta/login"><?php echo isset($_SESSION['loggedin']) ? "Logout" : "Login"; ?></a></li>
             <li><img class="icon2" src="../poze\home.png" alt="home icon" style="width:25px; height:25px;" /><a href="/licenta/">Home</a></li>
             <li><img class="icon2" src="../poze\about.png" alt="about us icon" style="width:25px; height:25px;" /><a href="/licenta/about">About us</a></li>
             <li><img class="icon2" src="../poze\camera.png" alt="services icon" style="width:25px; height:25px;" /><a href="/licenta/services">Services</a>
