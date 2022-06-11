@@ -98,12 +98,15 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
                                         <p name="phnumber">Number of photos: <span><?php echo $product_array[$key]["phnumber"]; ?></span></p>
                                         <p name="time">Shooting time:
                                             <span>
-                                                <?php echo (intdiv($product_array[$key]["timeph"], 60) != 0 ? (intdiv($product_array[$key]["timeph"], 60)) . "h " : "") . (($product_array[$key]["timeph"] % 60 != 0) ? ($product_array[$key]["timeph"] % 60) . "m" : ""); ?>
+                                                <?php
+                                                echo (intdiv($product_array[$key]["timeph"], 60) != 0 ? (intdiv($product_array[$key]["timeph"], 60)) . "h " : "") .
+                                                    (($product_array[$key]["timeph"] % 60 != 0) ? ($product_array[$key]["timeph"] % 60) . "m" : "");
+                                                ?>
                                             </span>
                                         </p>
                                         <p name="clothing">Number of clothing pieces: <span><?php echo $product_array[$key]["clothing"]; ?></span></p>
-                                        <span class="price"><?php echo $product_array[$key]["price"]; ?></span>
-                                        <input type="number" name="quantity" value="50" size="2" min="50" max="500" step="50" />
+                                        <p class="price">Price: $<?php echo $product_array[$key]["price"]; ?></p>
+                                        <input type="number" name="quantity" value="1" size="2" min="1" max="5" step="1" />
                                         <input type="submit" value="Add to cart" class="btnAddAction" />
                                     </form>
                                 </div>
