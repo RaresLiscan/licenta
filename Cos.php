@@ -158,8 +158,8 @@ if (!empty($_GET["action"])) {
                         </div>
                     </div>
                 </div>
-                <div><a href="Services.php" style="color:black;">Alegeti alt produs</a></div>
-                <div><a href="logout.php" style="color:black;">Abandonati sesiunea de cumparare</a></div>
+                <div class="mass-cos-control"><a href="Services.php" style="color:black;">Alegeti alt produs</a>
+                </div>
                 <div class="wrappercos">
                     <form action="" method="post">
                         <div class="discount-token">

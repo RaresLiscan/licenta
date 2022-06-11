@@ -1316,10 +1316,11 @@ textarea.input {
 .btn-outline {
     padding: 10px;
     border: 1px solid black;
+    background:#BDB7B1;
     color: white;
 }
 .btn-outline:hover{
-    background:#BDB7B1;
+    background-color: #353935;
     color:white;
 }
 .total{
@@ -1796,6 +1797,9 @@ form .butoninserare input:hover{
     background-color: #8b7070;
 }
 
+.rezerv a {
+    text-decoration: none;
+}
 .trash {
     float: right;
     position: relative;
@@ -1811,3 +1815,13 @@ form .butoninserare input:hover{
     font-size: 25px;
 }
 
+.mass-cos-control {
+    background-color:#B69A9A;
+    padding: 10px 0px 10px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.mass-cos-control a {
+    text-decoration: none;
+}
