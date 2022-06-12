@@ -2,10 +2,10 @@
 // We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
-//if (!isset($_SESSION['loggedin'])) {
-//header('Location: Index.html');
-//exit;
-//}
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: /licenta/login');
+    exit;
+}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
