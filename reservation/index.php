@@ -67,7 +67,7 @@ if (!isset($cart_id) || !isset($user_id)) {
     <script>
         $(function() {
             $('#shoottime').timepicker({
-                'timeFormat': 'H:i:s'
+                'timeFormat': 'H:i:s' //hh:mm:ss => 24h
             });
         });
 
@@ -77,17 +77,18 @@ if (!isset($cart_id) || !isset($user_id)) {
 
             xhttp.onload = function() {
                 const responseJson = JSON.parse(this.responseText);
+                //[{'start_time': 1, 'end_time': 2}]
 
                 const occupiedTimes = responseJson.map(pair => [pair.start_time, pair.end_time]);
                 $(function() {
                     $('#shoottime').timepicker({
-                        'disableTimeRanges': occupiedTimes,
+                        'disableTimeRanges': occupiedTimes, //['10:00', '11:00']
                         'timeFormat': 'H:i:s'
                     });
                 });
-                console.log(JSON.parse(this.responseText));
             }
-            xhttp.open("GET", `get_busy_hours.php?date=${event.target.value}`);
+
+            xhttp.open("GET", `get_busy_hours.php?date=${event.target.value}`); //2022-06-10
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send();
 

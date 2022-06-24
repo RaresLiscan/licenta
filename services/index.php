@@ -99,8 +99,9 @@ require_once dirname(__DIR__) . "\db\ShoppingCart.php"; ?>
                                         <p name="time">Shooting time:
                                             <span>
                                                 <?php
-                                                echo (intdiv($product_array[$key]["timeph"], 60) != 0 ? (intdiv($product_array[$key]["timeph"], 60)) . "h " : "") .
-                                                    (($product_array[$key]["timeph"] % 60 != 0) ? ($product_array[$key]["timeph"] % 60) . "m" : "");
+                                                if (isset($product_array[$key]["timeph"]))
+                                                    echo (intdiv($product_array[$key]["timeph"], 60) != 0 ? (intdiv($product_array[$key]["timeph"], 60)) . "h " : "") .
+                                                        (($product_array[$key]["timeph"] % 60 != 0) ? ($product_array[$key]["timeph"] % 60) . "m" : "");
                                                 ?>
                                             </span>
                                         </p>

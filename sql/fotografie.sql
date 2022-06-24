@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2022 at 10:00 AM
+-- Generation Time: Jun 24, 2022 at 09:49 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -51,28 +51,31 @@ CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `reserved` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `service_id`, `quantity`, `id_user`) VALUES
-(13, 1, 100, 1),
-(14, 2, 50, 1),
-(24, 1, 50, 4),
-(27, 2, 50, 2),
-(20, 2, 50, 4),
-(18, 2, 150, 3),
-(21, 1, 50, 2),
-(33, 2, 50, 11),
-(39, 1, 1, -1),
-(25, 1, 50, 11),
-(38, 2, 1, -1),
-(40, 2, 1, -1),
-(41, 2, 1, 8),
-(42, 12, 2, -1);
+INSERT INTO `cart` (`id`, `service_id`, `quantity`, `id_user`, `reserved`) VALUES
+(13, 1, 100, 1, 0),
+(14, 2, 50, 1, 0),
+(24, 1, 50, 4, 0),
+(27, 2, 50, 2, 0),
+(20, 2, 50, 4, 0),
+(18, 2, 150, 3, 0),
+(21, 1, 50, 2, 0),
+(33, 2, 50, 11, 0),
+(39, 1, 1, -1, 0),
+(25, 1, 50, 11, 0),
+(38, 2, 1, -1, 0),
+(40, 2, 1, -1, 0),
+(41, 2, 3, -1, 0),
+(42, 12, 2, -1, 0),
+(43, 2, 1, -1, 0),
+(44, 1, 1, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -198,7 +201,12 @@ INSERT INTO `reservations` (`id`, `order_id`, `name`, `phonenumb`, `shootdate`, 
 (28, 37, 'Rares :oscam', '0740172335', '2022-06-16', '09:30:00', '2', 'Parc Iulius Cluj-Napoca'),
 (25, 25, 'Liscan Rares', '0740172335', '2022-06-11', '12:00:00', '2', 'Parc Iulius Cluj-Napoca'),
 (30, 39, 'Liscan Rares', '0740017233', '2022-06-30', '07:00:00', '1', 'Parcul central Cluj-Napoca'),
-(31, 40, 'Liscan Rares', '0740172335', '2022-06-16', '13:00:00', '2', 'Castel Bontida');
+(31, 40, 'Liscan Rares', '0740172335', '2022-06-16', '13:00:00', '2', 'Castel Bontida'),
+(32, 41, 'Liscan Rares', '0740172335', '2022-06-17', '09:00:00', '2', 'Gradina Botanica Cluj-Napoca'),
+(33, 43, 'Liscan Rares', '0740172335', '2022-06-29', '09:30:00', '2', 'Parc Iulius Cluj-Napoca'),
+(34, 44, 'Liscan Rares', '0740172335', '2022-06-29', '19:30:00', '2', 'Parc Iulius Cluj-Napoca'),
+(35, 44, 'Liscan Rares', '0740172335', '2022-06-29', '19:30:00', '2', 'Parc Iulius Cluj-Napoca'),
+(36, 44, 'Liscan Rares', '0740172335', '2022-06-24', '01:30:00', '3', 'Gradina Botanica Cluj-Napoca');
 
 -- --------------------------------------------------------
 
@@ -335,7 +343,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `discount`
@@ -365,7 +373,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `services`
